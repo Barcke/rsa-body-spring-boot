@@ -1,4 +1,4 @@
-package com.barcke.rsa.exception;
+package com.barcke.y.rsa.exception;
 
 /**
   *                  ,;,,;
@@ -12,7 +12,6 @@ package com.barcke.rsa.exception;
   *     (_\       (_\
   *
   * @author Barcke
-  * @date 2020/7/27 15:20
   * @version 1.0
   **/
 public class EncryptRequestException extends RuntimeException {

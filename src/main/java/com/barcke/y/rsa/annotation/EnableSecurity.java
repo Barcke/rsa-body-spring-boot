@@ -1,8 +1,8 @@
-package com.barcke.rsa.annotation;
+package com.barcke.y.rsa.annotation;
 
-import com.barcke.rsa.advice.EncryptRequestBodyAdvice;
-import com.barcke.rsa.advice.EncryptResponseBodyAdvice;
-import com.barcke.rsa.config.SecretKeyConfig;
+import com.barcke.y.rsa.advice.EncryptRequestBodyAdvice;
+import com.barcke.y.rsa.advice.EncryptResponseBodyAdvice;
+import com.barcke.y.rsa.config.SecretKeyConfig;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.*;
@@ -19,7 +19,6 @@ import java.lang.annotation.*;
  *     (_\       (_\
  *
  * @author Barcke
- * @date 2020/7/27 15:20
  * @version 1.0
  **/
 @Target({ElementType.TYPE})

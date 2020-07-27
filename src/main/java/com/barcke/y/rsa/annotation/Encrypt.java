@@ -1,4 +1,4 @@
-package com.barcke.rsa.annotation;
+package com.barcke.y.rsa.annotation;
 
 import java.lang.annotation.*;
 
@@ -14,7 +14,6 @@ import java.lang.annotation.*;
  *     (_\       (_\
  *
  * @author Barcke
- * @date 2020/7/27 15:20
  * @version 1.0
  **/
 @Target(ElementType.METHOD)

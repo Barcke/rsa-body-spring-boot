@@ -1,10 +1,10 @@
-package com.barcke.rsa.advice;
+package com.barcke.y.rsa.advice;
 
-import com.barcke.rsa.annotation.Encrypt;
-import com.barcke.rsa.config.SecretKeyConfig;
-import com.barcke.rsa.util.Base64Util;
-import com.barcke.rsa.util.JsonUtils;
-import com.barcke.rsa.util.RSAUtil;
+import com.barcke.y.rsa.annotation.Encrypt;
+import com.barcke.y.rsa.config.SecretKeyConfig;
+import com.barcke.y.rsa.util.Base64Util;
+import com.barcke.y.rsa.util.JsonUtils;
+import com.barcke.y.rsa.util.RSAUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +32,6 @@ import java.util.Objects;
  *     (_\       (_\
  *
  * @author Barcke
- * @date 2020/7/27 15:20
  * @version 1.0
  **/
 @ControllerAdvice

@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.barcke</groupId>
+    <groupId>com.barcke.y</groupId>
     <artifactId>rsa-body-spring-boot</artifactId>
     <version>1.0.0</version>
     <description>Springboot 参数自动加解密</description>
@@ -13,8 +13,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
         <maven.deploy.skip>true</maven.deploy.skip>
         <springboot-version>2.1.4.RELEASE</springboot-version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <javadocExecutable>${java.home}/../bin/javadoc</javadocExecutable>
     </properties>
 
     <licenses>

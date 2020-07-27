@@ -1,4 +1,4 @@
-package com.barcke.rsa.pojo;
+package com.barcke.y.rsa.pojo;
 
 /**
   *                  ,;,,;
@@ -12,7 +12,6 @@ package com.barcke.rsa.pojo;
   *     (_\       (_\
   *
   * @author Barcke
-  * @date 2020/7/27 16:44
   * @version 1.0
   **/
 public class KeyInfo {

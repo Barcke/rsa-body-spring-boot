@@ -1,6 +1,6 @@
-package com.barcke.rsa.util;
+package com.barcke.y.rsa.util;
 
-import com.barcke.rsa.pojo.KeyInfo;
+import com.barcke.y.rsa.pojo.KeyInfo;
 import org.apache.commons.codec.binary.Base64;
 
 import javax.crypto.Cipher;
@@ -23,7 +23,6 @@ import java.security.spec.X509EncodedKeySpec;
  *     (_\       (_\
  *
  * @author Barcke
- * @date 2020/7/27 15:20
  * @version 1.0
  **/
 public class RSAUtil{
@@ -117,7 +116,8 @@ public class RSAUtil{
 
     /**
      * 随机生成密钥对
-     * @throws NoSuchAlgorithmException
+     * @throws NoSuchAlgorithmException 找不到对应的算法
+     * @return keyInfo 对应的密钥对
      */
     public static KeyInfo genKeyPair() throws NoSuchAlgorithmException {
         // KeyPairGenerator类用于生成公钥和私钥对，基于RSA算法生成对象

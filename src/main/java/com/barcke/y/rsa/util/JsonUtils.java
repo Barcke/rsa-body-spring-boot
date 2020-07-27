@@ -1,4 +1,4 @@
-package com.barcke.rsa.util;
+package com.barcke.y.rsa.util;
 
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -19,7 +19,6 @@ import java.io.IOException;
  *     (_\       (_\
  *
  * @author Barcke
- * @date 2020/7/27 15:20
  * @version 1.0
  **/
 public class JsonUtils {
