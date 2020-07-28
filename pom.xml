@@ -9,6 +9,10 @@
     <version>1.0.0</version>
     <description>Springboot 参数自动加解密</description>
 
+    <name>rsa-body-spring-boot</name>
+    <packaging>jar</packaging>
+    <url>https://github.com/Barcke/rsa-body-spring-boot</url>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -86,6 +90,7 @@
                         <version>1.6</version>
                         <executions>
                             <execution>
+                                <id>sign-artifacts</id>
                                 <phase>verify</phase>
                                 <goals>
                                     <goal>sign</goal>
