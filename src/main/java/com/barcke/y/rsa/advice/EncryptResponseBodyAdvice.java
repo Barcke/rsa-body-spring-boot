@@ -16,8 +16,11 @@ import org.springframework.http.server.ServerHttpResponse;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
+import sun.security.rsa.RSAPublicKeyImpl;
 
 import java.lang.reflect.Method;
+import java.security.interfaces.RSAPublicKey;
+import java.util.Base64;
 import java.util.Objects;
 
 /**
@@ -73,8 +76,8 @@ public class EncryptResponseBodyAdvice implements ResponseBodyAdvice<Object> {
                 if (!StringUtils.hasText(publicKey)) {
                     throw new NullPointerException("Please configure rsa.encrypt.privatekeyc parameter!");
                 }
-                byte[] data = content.getBytes("UTF-8");
-                byte[] encodedData = RSAUtil.encrypt(data, publicKey);
+                RSAPublicKey rsaPublicKey = RSAPublicKeyImpl.newKey(Base64.getDecoder().decode(publicKey));
+                byte[] encodedData = RSAUtil.encrypt(rsaPublicKey, content);
                 String result = Base64Util.encode(encodedData);
                 if(secretKeyConfig.isShowLog()) {
                     log.info("Pre-encrypted data：{}，After encryption：{}", content, result);

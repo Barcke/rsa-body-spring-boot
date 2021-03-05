@@ -74,3 +74,16 @@ console.log('解密后数据:%o', uncrypted);
 </html>
 ```
 
+## 2021-03-05 升级如下
+```
+ <dependency>
+      <groupId>com.barcke.y</groupId>
+      <artifactId>rsa-body-spring-boot</artifactId>
+      <version>1.0.1</version>
+</dependency>
+```
+#### 解决内容过长解密失败问题
+
+支持版本JDK 1.8.0_251
+过低不支持噢
+1.8.0_251版本升级了RSA创建方式固过低不支持～

@@ -11,11 +11,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
+import sun.security.rsa.RSAPrivateCrtKeyImpl;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.security.interfaces.RSAPrivateKey;
+import java.util.Base64;
 import java.util.stream.Collectors;
 
 /**
@@ -64,19 +67,14 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
             log.info("Unencrypted without decryption:{}", content);
             decryptBody = content;
         } else {
-            StringBuilder json = new StringBuilder();
             content = content.replaceAll(" ", "+");
-
-            if (!StringUtils.isEmpty(content)) {
-                String[] contents = content.split("\\|");
-                for (String value : contents) {
-                    value = new String(RSAUtil.decrypt(Base64Util.decode(value), privateKey), charset);
-                    json.append(value);
-                }
+            if (StringUtils.isEmpty(content)) {
+                throw new EncryptRequestException("request body is empty");
             }
-            decryptBody = json.toString();
+            RSAPrivateKey rsaPrivateKey = RSAPrivateCrtKeyImpl.newKey(Base64.getDecoder().decode(privateKey));
+            decryptBody = new String(RSAUtil.decrypt(rsaPrivateKey, Base64Util.decode(content)), charset);
             if(showLog) {
-                log.info("Encrypted data received：{},After decryption：{}", content, decryptBody);
+                log.info("After decryption：{}, Encrypted data received：{}", decryptBody, content);
             }
         }
 

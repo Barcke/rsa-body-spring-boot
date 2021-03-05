@@ -6,7 +6,7 @@
 
     <groupId>com.barcke.y</groupId>
     <artifactId>rsa-body-spring-boot</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
     <description>Springboot 参数自动加解密</description>
 
     <name>rsa-body-spring-boot</name>
