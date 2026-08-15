@@ -11,12 +11,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpInputMessage;
+import org.springframework.http.MediaType;
 import sun.security.rsa.RSAPrivateCrtKeyImpl;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.Charset;
 import java.security.interfaces.RSAPrivateKey;
 import java.util.Base64;
 import java.util.stream.Collectors;
@@ -53,7 +55,13 @@ public class DecryptHttpInputMessage implements HttpInputMessage {
             throw new IllegalArgumentException("privateKey is null");
         }
 
-        this.headers = inputMessage.getHeaders();
+        // 解密后的请求体为 JSON, 若前端以 application/x-www-form-urlencoded 等
+        // 其他 Content-Type 发起请求, 会抛出 HttpMediaTypeNotSupportedException,
+        // 此处统一将请求头 Content-Type 修正为 application/json
+        HttpHeaders headers = new HttpHeaders();
+        headers.putAll(inputMessage.getHeaders());
+        headers.setContentType(new MediaType("application", "json", Charset.forName(charset)));
+        this.headers = headers;
         String content = new BufferedReader(new InputStreamReader(inputMessage.getBody()))
                 .lines().collect(Collectors.joining(System.lineSeparator()));
         String decryptBody;

@@ -36,6 +36,8 @@ RSAUtil.genKeyPair();
 ![](https://imgkr.cn-bj.ufileos.com/11593bc0-ef37-403a-85d5-0e8a9d80d07a.png)
 **注意传参方式为“application/json”加密会对整个回参加密,解密会对整个入参解密.**
 
+**请求头 Content-Type 请尽量使用 "application/json", 若以 "application/x-www-form-urlencoded" 等其他 Content-Type 发起请求, 解密后服务端会统一将请求体 Content-Type 修正为 "application/json".**
+
 前端加解密可以同步公私钥信息、不过需要注意RSA的长度加密为117解密为256超长是会报错的~
 前端加解密可参考如下:
 ```
